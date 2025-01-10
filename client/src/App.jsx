@@ -1,13 +1,13 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
 import DefaultLayout from './layouts/DefaultLayout';
 import Home from './pages/Home';
-import MovieDetail from './pages/MovieDetail';
+import MovieDetail from './pages/movies/MovieDetail';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 
-import { useState } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     
@@ -15,8 +15,10 @@ function App() {
     <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout />}>
-            <Route path='/' element={<Home />} />
-            <Route path="/movie/:id" element={<MovieDetail />} />
+              <Route path='/' element={<Home />} />
+              <Route path="/movie/:id" element={<MovieDetail />} />
+              <Route path='/about' element={<AboutPage />} />
+              <Route path='/contact' element={<ContactPage />} />
           </Route>
         </Routes>
     </BrowserRouter>

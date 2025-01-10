@@ -1,15 +1,17 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Nav from '../components/Nav';
 
 const Header = () => {
   return (
     <header>
-      <nav>
-        <ul>
-          <li><NavLink to="/">Home</NavLink></li>
-          
-        </ul>
-      </nav>
+        <div>
+            <Link to='/'>
+                <img src="" alt="" />
+            </Link>
+            <Nav/>
+        </div>
+    
+    
     </header>
   );
 };
