@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './layouts/Layout';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import DefaultLayout from './layouts/DefaultLayout';
 import Home from './pages/Home';
 import MovieDetail from './pages/MovieDetail';
 
@@ -10,16 +10,19 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <Router>
-      <Layout>
+    
+    
+    <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movie/:id" element={<MovieDetail />} />
+          <Route element={<DefaultLayout />}>
+            <Route path='/' element={<Home />} />
+            <Route path="/movie/:id" element={<MovieDetail />} />
+          </Route>
         </Routes>
-      </Layout>
-    </Router>
-    </div>
+    </BrowserRouter>
+       
+    
+      
   )
 }
 
