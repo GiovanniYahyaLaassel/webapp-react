@@ -1,13 +1,25 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
 
-// Componente Home
+import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+
 const Home = () => {
-  const films = [
-    { id: 1, title: 'Inception' },
-    { id: 2, title: 'Titanic' },
-    { id: 3, title: 'Interstellar' },
-  ];
+  const [films, setFilms] = useState([]);
+
+  useEffect(() => {
+    // Chiamata GET per  la lista dei film 
+    axios.get('http://localhost:3000/movies')  
+      .then(response => {
+        // Salviamo la risposta nel nostro stato
+        setFilms(response.data);
+      })
+      .catch(error => {
+        console.error('Errore nel recupero dei film:', error);
+      });
+      //chiamata che avverà solo al primo render 
+  }, []);   
+
 
   return (
     <div>
