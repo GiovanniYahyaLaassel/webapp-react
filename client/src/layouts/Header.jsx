@@ -6,7 +6,7 @@ const Header = () => {
     <header className="bg-primary text-white py-4">
         <div className="container flex justify-between items-center">
             <Link to='/'>
-                <img src="http://localhost:3000/movies_cover/logo.png" alt="" />
+                <img src="http://localhost:3000/logo.png" alt="" />
             </Link>
             <Nav/>
         </div>

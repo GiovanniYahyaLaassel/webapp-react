@@ -27,6 +27,10 @@ const MovieDetail = () => {
   return (
     <div>
       <h1>{movie.title}</h1>
+      <img 
+        src={movie.image} 
+        alt={movie.title} 
+      />
       <p>{movie.description}</p>
       <p><strong>Direttore:</strong> {movie.director}</p>
       <p><strong>Anno:</strong> {movie.release_year}</p>
