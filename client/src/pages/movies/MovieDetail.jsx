@@ -25,25 +25,54 @@ const MovieDetail = () => {
   }
 
   return (
-    <div>
-      <h1>{movie.title}</h1>
-      <img 
-        src={movie.image} 
-        alt={movie.title} 
-      />
-      <p>{movie.description}</p>
-      <p><strong>Direttore:</strong> {movie.director}</p>
-      <p><strong>Anno:</strong> {movie.release_year}</p>
+    <>
+  <section>
+    <div className="container my-4">
+        
+        <div className="d-flex flex-md-row align-items-center align-items-md-start gap-4">
 
-      <h2>Recensioni</h2>
-      <ul>
-        {reviews.map(review => (
-          <li key={review.id}>
-            <strong>{review.name}</strong>: {review.text}
-          </li>
-        ))}
-      </ul>
+          <img
+            src={movie.image}
+            alt={movie.title}
+            className="img-fluid rounded"
+            style={{ maxWidth: '200px' }}
+          />
+
+          {/* Dettagli del film */}
+          <div>
+            <h1>{movie.title}</h1>
+            <p>
+              <strong>Direttore:</strong> {movie.director}
+            </p>
+            <p>
+              <strong>Anno:</strong> {movie.release_year}
+            </p>
+            <p>{movie.description}</p>
+          </div>
+        </div>
     </div>
+  </section>
+
+  <section>
+    <div className="container mt-5">
+      <h2 className="mb-4">Recensioni</h2>
+      <div className="d-flex flex-column gap-3">
+        {reviews.map((review) => (
+          <div className="card" key={review.id}>
+            <div className="card-body">
+              <h5 className="card-title">{review.name}</h5>
+              <p className="card-text">{review.text}</p>
+              <p className="card-text">
+                <strong>Voto:</strong> {review.rating}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</>
   );
 };
 
