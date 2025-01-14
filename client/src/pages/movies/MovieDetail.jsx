@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import ReviewCard from '../../components/ReviewCard';
+
 
 const MovieDetail = () => {
   // Ottengo l'ID del film dalla URL
@@ -54,22 +56,11 @@ const MovieDetail = () => {
   </section>
 
   <section>
-    <div className="container mt-5">
-      <h2 className="mb-4">Recensioni</h2>
-      <div className="d-flex flex-column gap-3">
-        {reviews.map((review) => (
-          <div className="card" key={review.id}>
-            <div className="card-body">
-              <h5 className="card-title">{review.name}</h5>
-              <p className="card-text">{review.text}</p>
-              <p className="card-text">
-                <strong>Voto:</strong> {review.rating}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+  <div className="container mt-5">
+          <h2 className="mb-4">Recensioni</h2>
+          {/* Richiamiamo il componente */}
+          <ReviewCard reviews={reviews} />
+        </div>
   </section>
 
 </>
