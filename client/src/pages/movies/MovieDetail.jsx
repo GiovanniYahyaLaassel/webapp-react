@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ReviewCard from '../../components/ReviewCard';
-
+import ReviewForm from "../../components/ReviewForm";
 
 const MovieDetail = () => {
   // Ottengo l'ID del film dalla URL
@@ -56,11 +56,12 @@ const MovieDetail = () => {
   </section>
 
   <section>
-  <div className="container mt-5">
+     <div className="container mt-5">
           <h2 className="mb-4">Recensioni</h2>
           {/* Richiamiamo il componente */}
           <ReviewCard reviews={reviews} />
-        </div>
+      </div>
+      <ReviewForm />
   </section>
 
 </>
